@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Daily Task Manager</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <h1 class="title">
+                <span class="icon">✓</span>
+                Daily Task Manager
+            </h1>
+            <p class="subtitle">Stay organized and productive</p>
+        </header>
+
+        <div class="add-task-section">
+            <form class="add-task-form" id="addTaskForm">
+                <div class="input-group">
+                    <input 
+                        type="text" 
+                        id="taskInput" 
+                        placeholder="What needs to be done today?" 
+                        required
+                        maxlength="200"
+                    >
+                    <button type="submit" class="add-btn">
+                        <span class="btn-text">Add Task</span>
+                        <span class="btn-icon">+</span>
+                    </button>
+                </div>
+            </form>
+        </div>
+
+        <div class="stats-section">
+            <div class="stat-card">
+                <div class="stat-number" id="totalTasks">0</div>
+                <div class="stat-label">Total Tasks</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number" id="pendingTasks">0</div>
+                <div class="stat-label">Pending</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number" id="completedTasks">0</div>
+                <div class="stat-label">Completed</div>
+            </div>
+        </div>
+
+        <div class="tasks-container">
+            <section class="task-section">
+                <h2 class="section-title">
+                    <span class="section-icon">⏳</span>
+                    Pending Tasks
+                    <span class="task-count" id="pendingCount">0</span>
+                </h2>
+                <div class="task-list" id="pendingList">
+                    <div class="empty-state" id="pendingEmpty">
+                        <div class="empty-icon">🎯</div>
+                        <p>No pending tasks. Add one above!</p>
+                    </div>
+                </div>
+            </section>
+
+            <section class="task-section">
+                <h2 class="section-title">
+                    <span class="section-icon">✅</span>
+                    Completed Tasks
+                    <span class="task-count" id="completedCount">0</span>
+                </h2>
+                <div class="task-list" id="completedList">
+                    <div class="empty-state" id="completedEmpty">
+                        <div class="empty-icon">🏆</div>
+                        <p>No completed tasks yet. Keep going!</p>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </div>
+
+    <!-- Delete Confirmation Modal -->
+    <div class="modal-overlay" id="deleteModal">
+        <div class="modal">
+            <div class="modal-header">
+                <h3>Delete Task</h3>
+            </div>
+            <div class="modal-body">
+                <p>Are you sure you want to delete this task?</p>
+                <p class="task-preview" id="deleteTaskPreview"></p>
+            </div>
+            <div class="modal-actions">
+                <button class="btn btn-secondary" id="cancelDelete">Cancel</button>
+                <button class="btn btn-danger" id="confirmDelete">Delete</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
